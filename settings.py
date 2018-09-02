@@ -25,3 +25,7 @@ class Settings():
         self.bullets_allowed=5
         
         self.cats_allowed=5
+        
+        self.fps=40
+        self.cat_gen=0
+        

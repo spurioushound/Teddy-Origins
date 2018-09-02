@@ -56,7 +56,9 @@ def check_keydown_events(event, ai_settings, screen, ship, bullets,Cats):
         sys.exit()
         
         
-        
+def cat_check(ai_settings,screen,Cats):
+    if ai_settings.cat_gen %100 ==0:
+        create_cat(ai_settings,screen,Cats)
 
 
         

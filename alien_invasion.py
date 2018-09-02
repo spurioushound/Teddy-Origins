@@ -13,8 +13,10 @@ import game_functions as gf
 from pygame.sprite import Group
 
 
-
-
+#
+#mainClock=pygame.time.Clock()
+#
+#mainClock.tick(fps)
 
 def run_game():
     pygame.init()
@@ -48,10 +50,13 @@ def run_game():
         
         gf.update_bullets(bullets,ai_settings,Cats)
         
+        gf.cat_check(ai_settings,screen,Cats)
+        
         gf.update_cat(ship,Cats)
         
         gf.update_screen(ai_settings,screen,ship,bullets,Cats)
         
+        ai_settings.cat_gen+=1
         
         
 
