@@ -11,7 +11,7 @@ class Settings():
         """Initializae game settings"""
         #Screen settings
         self.screen_width=800
-        self.screen_height=400
+        self.screen_height=800
         self.bg_color=(230,230,230)
         
         #ship characteristics

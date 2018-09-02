@@ -11,6 +11,7 @@ from settings import Settings
 from Ship import Ship
 import game_functions as gf
 from pygame.sprite import Group
+from background import Background
 
 
 #
@@ -37,6 +38,7 @@ def run_game():
     #Set Attack method
     bullets=Group()
     
+    background = Background([0,0])
     
 
     Cats=Group()
@@ -54,7 +56,9 @@ def run_game():
         
         gf.update_cat(ship,Cats)
         
-        gf.update_screen(ai_settings,screen,ship,bullets,Cats)
+
+        
+        gf.update_screen(ai_settings,screen,ship,bullets,Cats,background)
         
         ai_settings.cat_gen+=1
         

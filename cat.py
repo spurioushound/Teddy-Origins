@@ -22,7 +22,7 @@ class Cat(Sprite):
         self.rect=self.image.get_rect()
         
         self.rect.right=self.screen_rect.right
-        self.rect.bottom=300
+        self.rect.bottom=680
         
         self.x=float(self.rect.x)
         

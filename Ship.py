@@ -21,7 +21,7 @@ class Ship():
         
         
         self.rect.centerx=self.screen_rect.left+30
-        self.rect.bottom=300
+        self.rect.bottom=680
         
         
         

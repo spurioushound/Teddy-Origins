@@ -101,8 +101,11 @@ def check_keyup_events(event, ship):
 
 
 
-def update_screen(ai_settings,screen,ship,bullets,Cats):
-    screen.fill(ai_settings.bg_color)
+def update_screen(ai_settings,screen,ship,bullets,Cats,background):
+    #screen.fill(ai_settings.bg_color)
+    
+    screen.fill([255, 255, 255])
+    screen.blit(background.image, background.rect)
     
     for bullet in bullets.sprites():
         bullet.draw_bullet()
