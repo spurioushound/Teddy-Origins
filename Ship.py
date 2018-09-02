@@ -74,23 +74,13 @@ class Ship():
                 self.jump_value-=1
             else:
                 self.falling=False
-            
-       # if ship.falling and 
-    
-    #            def do_jumping(player):
-#	global jump_height
-#	
-#	if player.jumping:
-#		player.jump_offset += 1
-#		if player.jump_offset >= jump_height:
-#			player.jumping = False
-#	elif player.jump_offset > 0 and player.jumping == False:
-#		player.jump_offset -= 1
-            
-    
-    
+        
         self.rect.centerx=self.center
         self.rect.bottom=self.vert
+
+    
+    
+        
     
     def walk(self):
         if self.rect.centerx % 10 == 0:

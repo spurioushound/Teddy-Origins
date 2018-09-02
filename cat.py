@@ -13,6 +13,7 @@ from pygame.sprite import Sprite
 class Cat(Sprite):
     def __init__(self,ai_settings,screen):
         super(Cat,self).__init__()
+        
         self.screen=screen
         self.screen_rect=screen.get_rect()
         self.ai_settings=ai_settings
@@ -35,11 +36,10 @@ class Cat(Sprite):
         self.est=0
         
         
-        ###Stoped here
-    def cat_move(self):
-        #Move him to the left
-        self.rect.right-=1
+        #Lets move this cat
         
+    #def move(self):
+               
 #        #Trying to Jump
 #        if self.jump_value == 0:
 #            self.est=rand.randrange(1,10)
@@ -48,6 +48,10 @@ class Cat(Sprite):
 #            self.jumping=True
 #        
 #        print(self.est)
+        
+        
+    
+    def update(self):
         
         if self.jumping:
             if self.jump_value<self.jump_height:
@@ -65,7 +69,8 @@ class Cat(Sprite):
                 self.falling=False
                 self.jumping=True
             
-        
+        #Move him to the left
+        self.rect.right-=1
         self.rect.bottom=self.vert
     
     

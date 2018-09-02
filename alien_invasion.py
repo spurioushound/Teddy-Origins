@@ -11,7 +11,7 @@ from settings import Settings
 from Ship import Ship
 import game_functions as gf
 from pygame.sprite import Group
-from cat import Cat
+
 
 
 
@@ -29,22 +29,28 @@ def run_game():
     #set Ship settings
        
     ship=Ship(ai_settings,screen)
+    #cat=Cat(ai_settings,screen)
+    
     
     #Set Attack method
     bullets=Group()
     
     
-    cat=Cat(ai_settings,screen)
-    
+
+    Cats=Group()
     
     
     while True:
         
-        gf.check_events(ai_settings,screen,ship,bullets)
+        gf.check_events(ai_settings,screen,ship,bullets,Cats)
+        
         ship.update()
-        gf.update_bullets(bullets,ai_settings)
-        cat.cat_move()
-        gf.update_screen(ai_settings,screen,ship,bullets,cat)
+        
+        gf.update_bullets(bullets,ai_settings,Cats)
+        
+        gf.update_cat(ship,Cats)
+        
+        gf.update_screen(ai_settings,screen,ship,bullets,Cats)
         
         
         
