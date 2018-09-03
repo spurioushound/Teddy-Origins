@@ -44,7 +44,8 @@ class Ship():
         self.falling=False
         
     def update(self):
-        if self.moving_right and self.rect.right<self.screen_rect.right:
+        #self.rect.right<self.screen_rect.right
+        if self.moving_right:
             #self.rect.centerx+=1
             self.center+=self.ai_settings.ship_speed_factor
         

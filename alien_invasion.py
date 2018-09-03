@@ -38,8 +38,10 @@ def run_game():
     #Set Attack method
     bullets=Group()
     
-    background = Background([0,0])
+    x=0
+    background = Background([800,0])
     
+    #x=0
 
     Cats=Group()
     
@@ -48,6 +50,8 @@ def run_game():
         
         gf.check_events(ai_settings,screen,ship,bullets,Cats)
         
+        x-=1
+        print(x)
         ship.update()
         
         gf.update_bullets(bullets,ai_settings,Cats)
@@ -58,7 +62,7 @@ def run_game():
         
 
         
-        gf.update_screen(ai_settings,screen,ship,bullets,Cats,background)
+        gf.update_screen(ai_settings,screen,ship,bullets,Cats,background,x)
         
         ai_settings.cat_gen+=1
         
