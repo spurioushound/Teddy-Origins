@@ -108,10 +108,18 @@ def update_screen(ai_settings,screen,ship,bullets,Cats,background,x):
     
     rel_x= x % background.image.get_rect().width
     
-    background.rect.left=rel_x
+    background.rect.left=rel_x-background.image.get_rect().width
+    
+    
+    print(rel_x)
     
     screen.fill([255, 255, 255])
     screen.blit(background.image, background)
+    
+    
+    if rel_x<800:
+        background.rect.left=rel_x
+        screen.blit(background.image, background)
     
     
     for bullet in bullets.sprites():

@@ -50,8 +50,7 @@ def run_game():
         
         gf.check_events(ai_settings,screen,ship,bullets,Cats)
         
-        x-=1
-        print(x)
+        
         ship.update()
         
         gf.update_bullets(bullets,ai_settings,Cats)
@@ -65,6 +64,9 @@ def run_game():
         gf.update_screen(ai_settings,screen,ship,bullets,Cats,background,x)
         
         ai_settings.cat_gen+=1
+        
+        if(ship.rect.centerx==ship.middle and ship.moving_right):
+            x-=1
         
         
 

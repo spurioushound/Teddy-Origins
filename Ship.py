@@ -17,6 +17,7 @@ class Ship():
         self.image=pygame.image.load("Graphics/test.bmp")
         self.rect=self.image.get_rect()
         self.screen_rect=screen.get_rect()
+        self.middle=screen.get_rect().width/2
         
         
         
@@ -47,7 +48,8 @@ class Ship():
         #self.rect.right<self.screen_rect.right
         if self.moving_right:
             #self.rect.centerx+=1
-            self.center+=self.ai_settings.ship_speed_factor
+            if self.center<self.middle:
+                self.center+=self.ai_settings.ship_speed_factor
         
         if self.moving_left and self.rect.left>self.screen_rect.left:
             #self.rect.centerx-=1
