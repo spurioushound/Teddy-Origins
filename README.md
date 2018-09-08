@@ -40,6 +40,7 @@ Teddy Origins is the first in a three part series describing the origins of Tedd
     Teddy's Parents
   
   **4)** Teddy Attacks and Add Limits
+  
     Tailswipe
     Snore shot
     Speed bump
