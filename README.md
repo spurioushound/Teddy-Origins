@@ -4,6 +4,7 @@ Teddy Origins is the first in a three part series describing the origins of Tedd
 
 
 **To Run in Terminal:**
+
 **1)** The game runs on Python 3.6. This can be downloaded at the following link:
     https://www.python.org/downloads/release/python-360/
     
