@@ -20,17 +20,28 @@ Teddy Origins is the first in a three part series describing the origins of Tedd
 
 
 **Additional things to add to game:**
+
   **1)** Reduction in Teddy Health
-  **2)** Additional enemies 
+
+**2)** Additional enemies 
+
     Hawk
+
     Squirrel Drone
+
     Squirrel Royal Gaurd
+
     Squirrel King (Big Boss)
+  
   **3)** Additional Teddy Family Members:
+  
     Teddy's Brother: Oscar
+    
     Teddy's Parents
+  
   **4)** Teddy Attacks and Add Limits
     Tailswipe
     Snore shot
     Speed bump
+    
   **5)** Music & Sound
