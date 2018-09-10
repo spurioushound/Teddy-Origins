@@ -39,7 +39,7 @@ class Ship():
         
         #Jumping:
         self.jumping=False
-        self.jump_height=30
+        self.jump_height=200
         self.jump_value=0
         
         self.falling=False
@@ -66,7 +66,7 @@ class Ship():
         if self.jumping:
             if self.jump_value<self.jump_height:
                 self.vert-=self.ai_settings.ship_speed_factor
-                self.jump_value+=1
+                self.jump_value+=10
             else:
                 self.falling=True
                 self.jumping=False
@@ -74,7 +74,7 @@ class Ship():
         if self.falling:
             if self.jump_value>0:
                 self.vert+=self.ai_settings.ship_speed_factor
-                self.jump_value-=1
+                self.jump_value-=10
             else:
                 self.falling=False
         

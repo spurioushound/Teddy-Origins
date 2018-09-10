@@ -10,6 +10,7 @@ import sys
 import pygame
 from bullet import Bullet
 from cat import Cat
+from Platforms import Platform
 
 
 
@@ -98,10 +99,13 @@ def check_keyup_events(event, ship):
         ship.falling=True
 
 
+def update_platforms(platforms,screen):
+    pl=Platform(300,550,100,40,screen)
+    platforms.add(pl)
 
 
 
-def update_screen(ai_settings,screen,ship,bullets,Cats,background,x):
+def update_screen(ai_settings,screen,ship,bullets,Cats,background,x,platforms):
     #screen.fill(ai_settings.bg_color)
     
     
@@ -127,11 +131,17 @@ def update_screen(ai_settings,screen,ship,bullets,Cats,background,x):
         
     for cat in Cats.sprites():
         cat.blitme()
+        
+    for plat in platforms.sprites():
+        plat.blitme()
+
     
     ship.blitme()
     #cat.blitme()
         
     pygame.display.flip()
+
+
 
 
 

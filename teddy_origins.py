@@ -12,6 +12,7 @@ from Ship import Ship
 import game_functions as gf
 from pygame.sprite import Group
 from background import Background
+from Platforms import Platform
 
 
 #
@@ -37,6 +38,7 @@ def run_game():
     
     #Set Attack method
     bullets=Group()
+    platforms=Group()
     
     x=0
     background = Background([800,0])
@@ -53,15 +55,21 @@ def run_game():
         
         ship.update()
         
+        
+        
         gf.update_bullets(bullets,ai_settings,Cats)
+        
         
         gf.cat_check(ai_settings,screen,Cats)
         
+        
         gf.update_cat(ship,Cats)
+        gf.update_platforms(platforms,screen) 
         
-
+        gf.update_screen(ai_settings,screen,ship,bullets,Cats,background,
+                         x, platforms)
         
-        gf.update_screen(ai_settings,screen,ship,bullets,Cats,background,x)
+       
         
         ai_settings.cat_gen+=1
         

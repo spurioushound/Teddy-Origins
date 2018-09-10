@@ -15,7 +15,7 @@ class Settings():
         self.bg_color=(230,230,230)
         
         #ship characteristics
-        self.ship_speed_factor=1.5
+        self.ship_speed_factor=2.5
         
         #Set his barks
         self.bullet_speed_factor=1
