@@ -13,15 +13,12 @@ class Bullet(Sprite):
     def __init__(self,ai_settings,screen,ship):
         super(Bullet,self).__init__()
         self.screen=screen
-        
         self.image=pygame.image.load("Graphics/soundwave.bmp")
-        #self.rect=self.image.get_rect()
-        self.rect=pygame.Rect(0,0,ai_settings.bullet_width,
-                              ai_settings.bullet_height)
         
-        self.rect.centerx=ship.rect.top
-        self.rect.midright=ship.rect.midright
+        self.rect=self.image.get_rect()
         
+        self.rect=pygame.Rect(ship.rect.right+25,ship.rect.top-20,100,100)
+
         self.x=float(self.rect.x)
         
         

@@ -18,7 +18,7 @@ class Ship():
         self.rect=self.image.get_rect()
         self.screen_rect=screen.get_rect()
         self.middle=screen.get_rect().width/2
-        
+        self.right=self.rect.right
         
         
         self.rect.centerx=self.screen_rect.left+30
