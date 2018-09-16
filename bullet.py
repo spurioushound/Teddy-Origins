@@ -14,11 +14,12 @@ class Bullet(Sprite):
         super(Bullet,self).__init__()
         self.screen=screen
         
-        
+        self.image=pygame.image.load("Graphics/soundwave.bmp")
+        #self.rect=self.image.get_rect()
         self.rect=pygame.Rect(0,0,ai_settings.bullet_width,
                               ai_settings.bullet_height)
         
-        self.rect.centerx=ship.rect.centerx
+        self.rect.centerx=ship.rect.top
         self.rect.midright=ship.rect.midright
         
         self.x=float(self.rect.x)
@@ -32,4 +33,5 @@ class Bullet(Sprite):
         self.rect.centerx=self.x
     
     def draw_bullet(self):
-        pygame.draw.rect(self.screen,self.color,self.rect)
+        self.screen.blit(self.image,self.rect)
+        #pygame.draw.rect(self.screen,self.color,self.rect)

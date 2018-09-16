@@ -50,11 +50,12 @@ def run_game():
     
     while True:
         
-        gf.check_events(ai_settings,screen,ship,bullets,Cats)
+        gf.check_events(ai_settings,screen,ship,bullets,Cats,platforms)
         
         
         ship.update()
-        
+        ship.bot()
+        gf.hit_platform(ship,platforms)
         
         
         gf.update_bullets(bullets,ai_settings,Cats)

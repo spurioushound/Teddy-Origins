@@ -22,14 +22,14 @@ class Ship():
         
         
         self.rect.centerx=self.screen_rect.left+30
-        self.rect.bottom=680
+        self.rect.bottom=600
         
         
-        
+        self.gravity=5
         
         
         self.center=float(self.rect.centerx)
-        self.vert=float(self.rect.bottom)
+        self.vert=0
     
         #Moving in a direction
         self.moving_right=False
@@ -39,17 +39,33 @@ class Ship():
         
         #Jumping:
         self.jumping=False
-        self.jump_height=200
+        self.jump_height=50
         self.jump_value=0
         
         self.falling=False
         
+        
+        
+        
     def update(self):
         #self.rect.right<self.screen_rect.right
+        
+        
         if self.moving_right:
             #self.rect.centerx+=1
             if self.center<self.middle:
                 self.center+=self.ai_settings.ship_speed_factor
+        
+        
+        if self.moving_left:
+            self.image=pygame.image.load("Graphics/left.png")
+        
+        
+        
+        if self.moving_right:
+            self.image=pygame.image.load("Graphics/test.bmp")
+
+            
         
         if self.moving_left and self.rect.left>self.screen_rect.left:
             #self.rect.centerx-=1
@@ -65,28 +81,34 @@ class Ship():
         
         if self.jumping:
             if self.jump_value<self.jump_height:
-                self.vert-=self.ai_settings.ship_speed_factor
+                self.gravity=-10
                 self.jump_value+=10
+                print(self.jump_height)
+                print(self.jump_value)
             else:
-                self.falling=True
                 self.jumping=False
+                self.falling=True
         
         if self.falling:
-            if self.jump_value>0:
-                self.vert+=self.ai_settings.ship_speed_factor
-                self.jump_value-=10
+            if self.jump_value!=0:
+                self.jump_value-=25
             else:
                 self.falling=False
+                
+        
         
         self.rect.centerx=self.center
-        self.rect.bottom=self.vert
 
+        
+        
+    def bot(self):
+        self.rect.bottom += self.gravity
     
     
         
     
     def walk(self):
-        if self.rect.centerx % 10 == 0:
+        if self.rect.centerx % 20 == 0:
             self.image=pygame.image.load("Graphics/test2.bmp")
         else:
             self.image=pygame.image.load("Graphics/test.bmp")

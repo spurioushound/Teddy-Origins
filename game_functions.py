@@ -16,14 +16,14 @@ from Platforms import Platform
 
     
 
-def check_events(ai_settings,screen,ship,bullets,Cats):
+def check_events(ai_settings,screen,ship,bullets,Cats,platforms):
     for event in pygame.event.get():
             if event.type==pygame.QUIT:
                 sys.exit()
             
             
             elif event.type==pygame.KEYDOWN:
-                check_keydown_events(event, ai_settings, screen, ship, bullets,Cats)
+                check_keydown_events(event, ai_settings, screen, ship, bullets,Cats,platforms)
                 
             elif event.type==pygame.KEYUP:
                 check_keyup_events(event,ship)
@@ -33,7 +33,7 @@ def check_events(ai_settings,screen,ship,bullets,Cats):
 #            
             
 
-def check_keydown_events(event, ai_settings, screen, ship, bullets,Cats):
+def check_keydown_events(event, ai_settings, screen, ship, bullets,Cats,platforms):
     if event.key==pygame.K_RIGHT:
         ship.moving_right=True
     elif event.key==pygame.K_LEFT:
@@ -43,7 +43,7 @@ def check_keydown_events(event, ai_settings, screen, ship, bullets,Cats):
 #    elif event.key==pygame.K_UP:
 #        ship.moving_up=True
     
-    elif event.key==pygame.K_SPACE and ship.jump_value==0:
+    elif event.key==pygame.K_SPACE and ship.jump_value==0 and pygame.sprite.spritecollideany(ship,platforms,False):
         ship.jumping=True
         
     elif event.key==pygame.K_f:
@@ -100,10 +100,10 @@ def check_keyup_events(event, ship):
 
 
 def update_platforms(platforms,screen):
-    pl=Platform(300,550,100,40,screen)
+    pl=Platform(0,665,50,50,screen)
     platforms.add(pl)
-
-
+    pl2=Platform(90,665,50,50,screen)
+    platforms.add(pl2)
 
 def update_screen(ai_settings,screen,ship,bullets,Cats,background,x,platforms):
     #screen.fill(ai_settings.bg_color)
@@ -115,11 +115,11 @@ def update_screen(ai_settings,screen,ship,bullets,Cats,background,x,platforms):
     background.rect.left=rel_x-background.image.get_rect().width
     
     
-    print(rel_x)
+
     
     screen.fill([255, 255, 255])
     screen.blit(background.image, background)
-    
+    ship.walk()
     
     if rel_x<800:
         background.rect.left=rel_x
@@ -142,7 +142,14 @@ def update_screen(ai_settings,screen,ship,bullets,Cats,background,x,platforms):
     pygame.display.flip()
 
 
-
+def hit_platform(ship,platforms):
+    hits=pygame.sprite.spritecollideany(ship,platforms)
+    if hits and ship.jumping==False:
+        ship.gravity=0
+        ship.jump_value=0
+    else:
+        ship.gravity=5
+#        ship.falling=False
 
 
 def update_cat(ship,Cats):

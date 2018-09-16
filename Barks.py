@@ -18,17 +18,21 @@ class bark(Sprite):
         self.ai_settings=ai_settings
         
         #Shape
-        self.rect=pygame.Rect(0,0,ai_settings.bark_width,
-                              ai_settings.bark_height)
+        self.image=pygame.image.load("Graphics/soundwave.bmp")
+        self.rect=self.image.get_rect()
+        
+        #pygame.Rect(0,0,ai_settings.bark_width,
+         #                     ai_settings.bark_height)
         
         self.rect.centerx=ship.rect.centerx
         self.rect.top=ship.rect.top
+        
         
         #Vertical
         self.y=float(self.rect.y)
         
         ##Color
-        self.color=ai_settings.bark_color
+        #self.color=ai_settings.bark_color
         
         self.speed_factor=ai_settings.bark_speed_factor
         
@@ -37,4 +41,5 @@ class bark(Sprite):
         self.rect.y=self.y
     
     def draw_bark(self):
-        pygame.draw.rect(self.screen,self.color,self.rect)
+        #pygame.draw.rect(self.image,self.screen,self.rect)
+        self.screen.blit(self.image,self.rect)
