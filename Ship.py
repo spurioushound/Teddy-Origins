@@ -106,12 +106,11 @@ class Ship():
     
     
         
-    
-    def walk(self):
-        if self.rect.centerx % 20 == 0:
-            self.image=pygame.image.load("Graphics/test2.bmp")
-        else:
-            self.image=pygame.image.load("Graphics/test.bmp")
+#    
+#    def walk(self):
+#        if self.rect.centerx % 20 == 0 & self.moving_right:
+#            self.image=pygame.image.load("Graphics/test2.bmp")
+
             
     def blitme(self):
         self.screen.blit(self.image,self.rect)

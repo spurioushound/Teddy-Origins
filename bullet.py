@@ -17,7 +17,7 @@ class Bullet(Sprite):
         
         self.rect=self.image.get_rect()
         
-        self.rect=pygame.Rect(ship.rect.right+25,ship.rect.top-20,100,100)
+        self.rect=pygame.Rect(ship.rect.right+25,ship.rect.top-20,50,200)
 
         self.x=float(self.rect.x)
         

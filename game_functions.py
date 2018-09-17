@@ -12,6 +12,10 @@ from bullet import Bullet
 from cat import Cat
 from Platforms import Platform
 
+import pygame
+
+
+pygame.mixer.init()
 
 
     
@@ -48,6 +52,8 @@ def check_keydown_events(event, ai_settings, screen, ship, bullets,Cats,platform
         
     elif event.key==pygame.K_f:
         fire_bullet(ai_settings,screen,ship,bullets)
+        pygame.mixer.Sound("Media/test.wav").play()
+        
     
     elif event.key==pygame.K_b:
         create_cat(ai_settings,screen,Cats)
@@ -119,7 +125,7 @@ def update_screen(ai_settings,screen,ship,bullets,Cats,background,x,platforms):
     
     screen.fill([255, 255, 255])
     screen.blit(background.image, background)
-    ship.walk()
+    #ship.walk()
     
     if rel_x<800:
         background.rect.left=rel_x
